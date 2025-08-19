@@ -14,7 +14,7 @@ cp -r ~/MeuSetup/polybar/config.ini ~/.config/polybar/
 
 # rofi
 sudo mkdir -p /usr/share/rofi/themes
-cp -r ~/MeuSetup/rofi/rounded* /usr/share/rofi/themes/
+sudo cp -r ~/MeuSetup/rofi/rounded* /usr/share/rofi/themes/
 mkdir -p ~/.config/rofi
 cp -r ~/MeuSetup/rofi/config.rasi ~/.config/rofi/
 

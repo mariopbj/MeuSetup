@@ -13,6 +13,7 @@ sudo apt install -y \
     build-essential \
     curl \
     lightdm \
+    firefox-esr \
     pulseaudio \
     alsa-utils \
     pamixer \

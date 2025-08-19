@@ -4,17 +4,22 @@
 3. apt install sudo
 4. usermod -aG sudo seu_usuario
 
-# Instalar firefox e git
+# Instalar o git
 1. sudo apt update
-2. sudo apt install firefox-esr
-3. sudo apt install git
+2. sudo apt install git
 
 # Clonar repositorio
-git clone git@github.com:mariopbj/MeuSetup.git
+git clone https://github.com/mariopbj/MeuSetup.git
 
 # Executar installing.sh
 1. chmod +x ~/MeuSetup/scripts/installing.sh
 2. ~/MeuSetup/scripts/installing.sh
+
+# Reinicie
+sudo reboot
+
+# Abra o i3
+startx
 
 # Instalar manualmente:
 
