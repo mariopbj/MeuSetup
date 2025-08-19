@@ -10,7 +10,7 @@
 3. sudo apt install git
 
 # Clonar repositorio
-git clone 
+git clone git@github.com:mariopbj/MeuSetup.git
 
 # Executar installing.sh
 1. chmod +x ~/MeuSetup/scripts/installing.sh
