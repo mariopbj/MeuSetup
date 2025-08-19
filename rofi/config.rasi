@@ -1,0 +1,5 @@
+configuration {
+    modi: "drun,run,window,ssh";
+}
+//@theme "/usr/share/rofi/themes/config.rasi"
+@theme "/usr/share/rofi/themes/rounded-nord-dark.rasi"
