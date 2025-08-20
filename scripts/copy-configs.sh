@@ -22,6 +22,9 @@ cp -r ~/MeuSetup/rofi/config.rasi ~/.config/rofi/
 mkdir -p ~/.config/picom
 cp -r ~/MeuSetup/picom/picom.conf ~/.config/picom/
 
+# neofetch
+cp -r ~/MeuSetup/neofetch/ ~/.config/
+
 # nvim
 cp -r ~/MeuSetup/nvim/ ~/.config/
 
