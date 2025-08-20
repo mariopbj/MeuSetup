@@ -15,9 +15,6 @@ git clone https://github.com/mariopbj/MeuSetup.git
 1. chmod +x ~/MeuSetup/scripts/installing.sh
 2. ~/MeuSetup/scripts/installing.sh
 
-# Reinicie
-sudo reboot
-
 # Abra o i3
 startx
 

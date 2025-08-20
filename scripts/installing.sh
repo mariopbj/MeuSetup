@@ -24,6 +24,7 @@ sudo apt install -y \
     celluloid \
     clementine \
     flameshot \
+    neovim \
     neofetch \
     btop
 
