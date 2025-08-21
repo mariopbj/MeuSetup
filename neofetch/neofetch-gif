@@ -1,0 +1,6 @@
+
+#!/bin/bash
+
+neofetch | sed 's/^/                                          /'
+
+kitty +kitten icat --place=40x20@1x1 ~/.config/neofetch/gifs/AK12_attack2.gif

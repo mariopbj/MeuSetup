@@ -5,8 +5,9 @@ mkdir -p ~/.config/i3
 cp -r ~/MeuSetup/i3/.xinitrc ~/
 cp -r ~/MeuSetup/i3/config ~/.config/i3/
 
-# urxvt
-cp -r ~/MeuSetup/urxvt/.Xresources ~/
+# kitty
+mkdir -p ~/.config/kitty
+cp -r ~/MeuSetup/kitty ~/.config/kitty
 
 # polybar
 mkdir -p ~/.config/polybar
@@ -31,6 +32,11 @@ cp -r ~/MeuSetup/nvim/ ~/.config/
 # wallpapers
 mkdir -p ~/WallPapers
 
-xrdb -merge ~/.Xresources
+# Neofetch-gif
+mkdir -p ~/bin
+cp ~/MeuSetup/neofetch/neofetch-gif ~/bin/
+sudo chmod +x ~/bin/neofetch-gif
+echo 'alias neofetch="~/bin/neofetch-gif"' >> ~/.bashrc
+source ~/.bashrc
 
 echo "Pronto. Sistema configurado."

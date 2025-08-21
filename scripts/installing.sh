@@ -7,7 +7,7 @@ echo "Instalando pacotes principais..."
 sudo apt install -y \
     xorg \
     i3 \
-    rxvt-unicode \
+    kitty \
     fonts-dejavu \
     fonts-liberation \
     fonts-font-awesome \
