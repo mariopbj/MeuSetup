@@ -22,13 +22,15 @@ sudo apt install -y \
     unzip \
     picom \
     rofi \
-    gnome-control-center \
     celluloid \
     clementine \
     flameshot \
     neovim \
     neofetch \
     btop
+
+# Instalar settings do gnome
+sudo apt install -y --no-install-recommends gnome-control-center
 
 echo "Instalando dependências da Polybar..."
 sudo apt install -y \
