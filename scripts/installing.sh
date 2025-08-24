@@ -20,6 +20,7 @@ sudo apt install -y \
     pamixer \
     feh \
     unzip \
+    network-manager \
     picom \
     rofi \
     celluloid \
