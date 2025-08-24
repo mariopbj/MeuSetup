@@ -7,7 +7,7 @@ cp -r ~/MeuSetup/i3/config ~/.config/i3/
 
 # kitty
 mkdir -p ~/.config/kitty
-cp -r ~/MeuSetup/kitty ~/.config/kitty
+cp -r ~/MeuSetup/kitty/ ~/.config/
 
 # polybar
 mkdir -p ~/.config/polybar
@@ -32,11 +32,7 @@ cp -r ~/MeuSetup/nvim/ ~/.config/
 # wallpapers
 mkdir -p ~/WallPapers
 
-# Neofetch-gif
-mkdir -p ~/bin
-cp ~/MeuSetup/neofetch/neofetch-gif ~/bin/
-sudo chmod +x ~/bin/neofetch-gif
-echo 'alias neofetch="~/bin/neofetch-gif"' >> ~/.bashrc
-source ~/.bashrc
+# .bashrc
+sudo cp ~/MeuSetup/bashrc/.bashrc ~/
 
 echo "Pronto. Sistema configurado."

@@ -19,6 +19,7 @@ sudo apt install -y \
     alsa-utils \
     pamixer \
     feh \
+    unzip \
     picom \
     rofi \
     gnome-control-center \
