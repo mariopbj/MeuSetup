@@ -111,4 +111,4 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-alias neofetch="~/.config/neofetch/neofetch-gif"
+alias neofetch="~/MeuSetup/scripts/neofetch-gif.sh --restore"

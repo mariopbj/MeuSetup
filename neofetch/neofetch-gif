@@ -1,9 +1,0 @@
-
-#!/bin/bash
-
-# Gap manual antes do texto
-neofetch | sed 's/^/                                          /'
-
-# Mostra o GIF do lado
-kitty +kitten icat --place=40x20@1x1 ~/.config/neofetch/gifs/negev-shooting-nobackground.gif
-
