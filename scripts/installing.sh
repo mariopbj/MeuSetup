@@ -26,7 +26,6 @@ sudo apt install -y \
     celluloid \
     clementine \
     flameshot \
-    neovim \
     neofetch \
     btop
 
@@ -60,6 +59,14 @@ sudo apt install -y \
     libcairo2-dev \
     libfontconfig1-dev \
     libuv1-dev
+
+
+echo "Instalando dependências do Neovim..."
+sudo apt install -y \
+    nodejs \
+    python3-pip \
+    npm
+
 
 echo "Todas as dependências foram instaladas com sucesso!"
 echo "Instalação concluída!"
