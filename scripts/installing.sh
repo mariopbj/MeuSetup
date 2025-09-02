@@ -7,7 +7,7 @@ echo "Instalando pacotes principais..."
 sudo apt install -y \
     xorg \
     i3 \
-    kitty \
+    rxvt-unicode \
     fonts-dejavu \
     fonts-liberation \
     fonts-font-awesome \
@@ -25,6 +25,8 @@ sudo apt install -y \
     rofi \
     celluloid \
     clementine \
+    w3m \
+    w3m-img \
     flameshot \
     neofetch \
     btop

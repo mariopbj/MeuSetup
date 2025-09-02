@@ -5,9 +5,8 @@ mkdir -p ~/.config/i3
 cp -r ~/MeuSetup/i3/.xinitrc ~/
 cp -r ~/MeuSetup/i3/config ~/.config/i3/
 
-# kitty
-mkdir -p ~/.config/kitty
-cp -r ~/MeuSetup/kitty/ ~/.config/
+# urxvt
+cp ~/MeuSetup/urxvt/.Xresources ~/
 
 # polybar
 mkdir -p ~/.config/polybar
@@ -31,8 +30,5 @@ cp -r ~/MeuSetup/nvim/ ~/.config/
 
 # wallpapers
 mkdir -p ~/WallPapers
-
-# .bashrc
-sudo cp ~/MeuSetup/bashrc/.bashrc ~/
 
 echo "Pronto. Sistema configurado."

@@ -55,7 +55,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -71,9 +71,6 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # Mudar Wallpaper Script
 bindsym $mod+Shift+m exec bash ~/MeuSetup/scripts/mudar_wallpaper.sh
-
-# Mudar gif neofetch script
-bindsym $mod+Shift+g exec bash ~/MeuSetup/scripts/neofetch-gif.sh
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id dmenu_run
