@@ -89,7 +89,7 @@ case ${chosen} in
         run_cmd --reboot
         ;;
     $lock)
-        i3lock
+        i3lock -i ~/Pictures/river-forest-temple-blur.png
         ;;
     $suspend)
         run_cmd --suspend
