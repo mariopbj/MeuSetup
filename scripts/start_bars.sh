@@ -15,3 +15,4 @@ polybar date_bar &
 polybar batery_bar &
 polybar pulseaudio_bar &
 polybar wifi_bar &
+polybar powermenu_bar &
