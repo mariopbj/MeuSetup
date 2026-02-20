@@ -72,6 +72,9 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 # Mudar Wallpaper Script
 bindsym $mod+Shift+m exec bash ~/MeuSetup/scripts/mudar_wallpaper.sh
 
+# Abrir o powermenu
+bindsym $mod+Shift+BackSpace exec bash ~/MeuSetup/scripts/powermenu.sh
+
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id dmenu_run
 
