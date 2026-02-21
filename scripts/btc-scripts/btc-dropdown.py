@@ -32,12 +32,14 @@ def obter_dados():
 def cor_mayer(valor):
     try:
         valor = float(valor)
-        if valor < 1:
-            return "#00ff88"   # verde (zona histórica de fundo)
-        elif valor < 2.4:
+        if valor <= 0.8:
+            return "#ff4444"    # verde (zona histórica de fundo)
+        elif valor < 1:
             return "#ffaa00"   # neutro
+        elif valor <= 2:
+            return "#00ff88"# topo histórico
         else:
-            return "#ff4444"   # topo histórico
+            return "#ffffff"
     except:
         return "white"
 
@@ -45,12 +47,53 @@ def cor_mayer(valor):
 def cor_rsi(valor):
     try:
         valor = float(valor)
-        if valor < 30:
-            return "#00ff88"   # sobrevendido
-        elif valor > 70:
-            return "#ff4444"   # sobrecomprado
+        if valor <= 30:
+            return "#ff4444"    # sobrevendido
+        elif valor >= 70:
+            return "#00ff88"  # sobrecomprado
         else:
-            return "#ffaa00"
+            return "#ffffff"
+    except:
+        return "white"
+    
+
+import re
+
+def cor_fng(valor):
+    try:
+        # extrai número da string
+        numero = re.search(r'\d+', str(valor))
+        if not numero:
+            return "white"
+
+        valor = float(numero.group())
+
+        if valor <= 20:
+            return "#ff4444"   # Extreme Fear
+        elif valor <= 40:
+            return "#ff8800"   # Fear
+        elif valor <= 50:
+            return "#ffaa00"   # Neutral
+        elif valor <= 70:
+            return "#88ff00"   # Greed
+        else:
+            return "#00ff88"   # Extreme Greed
+
+    except:
+        return "white"
+    
+
+def cor_halving(dias):
+    try:
+        dias = int(dias)
+
+        if 545 <= dias <= 565:
+            return "#00ff88"   # zona mais provável
+        elif 515 <= dias <= 585:
+            return "#ffaa00"   # zona histórica
+        else:
+            return "white"
+
     except:
         return "white"
 
@@ -127,7 +170,7 @@ else:
         frame,
         text=f"Fear & Greed: {dados['fng']}",
         bg="#050608",
-        fg="white",
+        fg=cor_fng(dados["fng"]),
         font=("monospace", 11)
     ).pack(anchor="w")
 
@@ -136,7 +179,7 @@ else:
         frame,
         text=f"Dias pós-halving: {dados['halving']}",
         bg="#050608",
-        fg="white",
+        fg=cor_halving(dados["halving"]),
         font=("monospace", 11)
     ).pack(anchor="w")
 

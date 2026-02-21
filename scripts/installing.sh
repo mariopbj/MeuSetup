@@ -27,6 +27,7 @@ sudo apt install -y \
     clementine \
     w3m \
     w3m-img \
+    mpg123 \
     flameshot \
     neofetch \
     btop

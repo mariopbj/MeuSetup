@@ -2,9 +2,17 @@
 
 import time
 from datetime import datetime
+import subprocess
+from pathlib import Path
 import btc_info
 
-ARQUIVO = "/home/mpbj/MeuSetup/scripts/btc-scripts/btc-data.txt"
+BASE = Path.home() / "MeuSetup/scripts/btc-scripts"
+
+ARQUIVO = BASE / "btc-data.txt"
+ATH_FILE = BASE / "btc-ath.txt"
+
+SOM_ALARME = BASE / "alarm/ath.mp3"
+WALLPAPER_ATH = BASE / "alarm/honeybadger-dont-care.png"
 
 
 def obter_dados():
@@ -23,23 +31,54 @@ def obter_dados():
 
 
 def salvar_dados(dados):
-    if dados is None:
-        return
-
     preco, mayer, rsi, fng, halving = dados
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     with open(ARQUIVO, "w") as f:
-        f.write(f"{timestamp}\n")
-        f.write(f"{preco}\n")
-        f.write(f"{mayer}\n")
-        f.write(f"{rsi}\n")
-        f.write(f"{fng}\n")
-        f.write(f"{halving}\n")
+        f.write(f"{timestamp}\n{preco}\n{mayer}\n{rsi}\n{fng}\n{halving}\n")
 
 
+def ler_ath():
+    try:
+        return float(Path(ATH_FILE).read_text().strip())
+    except:
+        return 0
+
+
+def salvar_ath(valor):
+    ATH_FILE.write_text(str(valor))
+
+
+def tocar_alarme():
+    try:
+        subprocess.Popen(["mpg123", "-q", str(SOM_ALARME)])
+    except:
+        pass
+
+
+def trocar_wallpaper():
+    try:
+        subprocess.Popen(["feh", "--bg-fill", str(WALLPAPER_ATH)])
+    except:
+        pass
+
+
+def verificar_ath(preco_atual):
+    ath = ler_ath()
+
+    if preco_atual > ath:
+        salvar_ath(preco_atual)
+        tocar_alarme()
+        trocar_wallpaper()
+
+
+
+time.sleep(5)  # aguardar 5 segundos para garantir que o sistema esteja pronto
 while True:
     dados = obter_dados()
 
-    salvar_dados(dados)
-    time.sleep(600)  # 600s = 10 minutos
+    if dados:
+        salvar_dados(dados)
+        verificar_ath(dados[0])
+
+    time.sleep(600)
