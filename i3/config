@@ -25,6 +25,7 @@ font pango:monospace 0
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id bash ~/MeuSetup/scripts/start_bars.sh &
 exec_always --no-startup-id bash ~/MeuSetup/scripts/mudar_wallpaper.sh --restore
+exec --no-startup-id python3 ~/MeuSetup/scripts/btc-scripts/btc-back.py
 exec_always --no-startup-id picom --experimental-backends
 exec --no-startup-id lxpolkit
 
