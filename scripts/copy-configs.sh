@@ -1,5 +1,8 @@
 echo "Copiando configurações (dotfiles)..."
 
+# Permissão para btc-back
+chmod +x ~/MeuSetup/scripts/btc-scripts/btc-back.py
+
 # i3
 mkdir -p ~/.config/i3
 cp -r ~/MeuSetup/i3/.xinitrc ~/

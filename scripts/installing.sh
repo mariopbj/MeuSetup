@@ -28,6 +28,7 @@ sudo apt install -y \
     w3m \
     w3m-img \
     mpg123 \
+    python3-tk \
     flameshot \
     neofetch \
     btop

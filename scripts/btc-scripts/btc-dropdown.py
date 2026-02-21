@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 
 import tkinter as tk
+import os
 
-
-# =========================
-# 🔹 Buscar TODOS os dados
-# =========================
-
-ARQUIVO = "/home/mpbj/MeuSetup/scripts/btc-scripts/btc-data.txt"
+# caminho relativo ao próprio script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ARQUIVO = os.path.join(BASE_DIR, "btc-data.txt")
 
 def obter_dados():
     try:
