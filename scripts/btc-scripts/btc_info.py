@@ -44,42 +44,6 @@ def calcular_mayer(preco_atual, precos_200):
         return round(preco_atual / media_200, 2)
     except:
         return None
-    
-
-# =========================
-# RSI (14 dias)
-# =========================
-
-def calcular_rsi(periodo=14):
-    try:
-        r = requests.get(
-            "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart",
-            params={"vs_currency": "usd", "days": 60},
-            timeout=10
-        )
-        dados = r.json()["prices"]
-        closes = [p[1] for p in dados]
-
-        ganhos = []
-        perdas = []
-
-        for i in range(1, periodo+1):
-            delta = closes[-i] - closes[-i-1]
-            if delta > 0:
-                ganhos.append(delta)
-            else:
-                perdas.append(abs(delta))
-
-        media_ganho = sum(ganhos)/periodo if ganhos else 0
-        media_perda = sum(perdas)/periodo if perdas else 1
-
-        rs = media_ganho / media_perda
-        rsi = 100 - (100 / (1 + rs))
-        return round(rsi, 2)
-
-    except:
-        return None
-
 
 # =========================
 # FEAR & GREED

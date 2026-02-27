@@ -23,19 +23,18 @@ def obter_dados():
         return None
 
     mayer = btc_info.calcular_mayer(preco, precos_200)
-    rsi = btc_info.calcular_rsi()
     fng = btc_info.fear_and_greed()
     dias_halving = btc_info.dias_desde_halving()
 
-    return preco, mayer, rsi, fng, dias_halving
+    return preco, mayer, fng, dias_halving
 
 
 def salvar_dados(dados):
-    preco, mayer, rsi, fng, halving = dados
+    preco, mayer, fng, halving = dados
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     with open(ARQUIVO, "w") as f:
-        f.write(f"{timestamp}\n{preco}\n{mayer}\n{rsi}\n{fng}\n{halving}\n")
+        f.write(f"{timestamp}\n{preco}\n{mayer}\n{fng}\n{halving}\n")
 
 
 def ler_ath():

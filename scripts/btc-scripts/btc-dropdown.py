@@ -15,9 +15,8 @@ def obter_dados():
         return {
             "preco": float(linhas[1]),
             "mayer": linhas[2],
-            "rsi": linhas[3],
-            "fng": linhas[4],
-            "halving": linhas[5]
+            "fng": linhas[3],
+            "halving": linhas[4]
         }
     except:
         return None
@@ -36,19 +35,6 @@ def cor_mayer(valor):
             return "#ffaa00"   # neutro
         elif valor <= 2:
             return "#00ff88"# topo histórico
-        else:
-            return "#ffffff"
-    except:
-        return "white"
-
-
-def cor_rsi(valor):
-    try:
-        valor = float(valor)
-        if valor <= 30:
-            return "#ff4444"    # sobrevendido
-        elif valor >= 70:
-            return "#00ff88"  # sobrecomprado
         else:
             return "#ffffff"
     except:
@@ -154,19 +140,10 @@ else:
         font=("monospace", 11)
     ).pack(anchor="w")
 
-    # 🔹 RSI
-    tk.Label(
-        frame,
-        text=f"RSI: {dados['rsi']}",
-        bg="#050608",
-        fg=cor_rsi(dados["rsi"]),
-        font=("monospace", 11)
-    ).pack(anchor="w")
-
     # 🔹 Fear & Greed
     tk.Label(
         frame,
-        text=f"Fear & Greed: {dados['fng']}",
+        text=f"F&G: {dados['fng']}",
         bg="#050608",
         fg=cor_fng(dados["fng"]),
         font=("monospace", 11)
