@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVERS=("us02" "us97" "nl141")
+#SERVERS=("servidor1" "2" "3" "...")
 
 CURRENT=$(wg show interfaces)
 
