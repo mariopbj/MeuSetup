@@ -30,8 +30,11 @@ sudo apt install -y \
     mpg123 \
     python3-tk \
     flameshot \
-    neofetch \
-    btop
+    fastfetch \
+    btop \
+    wireguard \
+    wireguard-tools \
+    resolvconf
 
 # Instalar settings do gnome
 sudo apt install -y --no-install-recommends gnome-control-center
@@ -62,7 +65,11 @@ sudo apt install -y \
     python3-sphinx \
     libcairo2-dev \
     libfontconfig1-dev \
-    libuv1-dev
+    libuv1-dev \
+    libxcursor-dev \
+    libxcb-cursor-dev \
+    libxcb-render-util0-dev \
+    libxfixes-dev
 
 
 echo "Instalando dependências do Neovim..."

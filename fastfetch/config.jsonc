@@ -1,0 +1,43 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    // Caminho para a imagem ou ASCII personalizada
+    "source": "/home/m4pbj/MeuSetup/fastfetch/ascii.txt",
+    // Tipo de logo: ascii, kitty, iterm2, sixel
+    "type": "auto",
+    "color": {
+        "1": "\u001b[38;5;196m"
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    "display",
+    "de",
+    "wm",
+    "wmtheme",
+    "theme",
+    "icons",
+    "font",
+    "cursor",
+    "terminal",
+    "terminalfont",
+    "cpu",
+    "gpu",
+    "memory",
+    "swap",
+    "disk",
+    "localip",
+    "battery",
+    "poweradapter",
+    "locale",
+    "break",
+    "colors"
+  ]
+}
