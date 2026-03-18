@@ -13,6 +13,7 @@ polybar workspace_bar &
 polybar systray_bar &
 polybar bitcoin_bar &
 polybar vpn_bar &
+polybar calendario_bar &
 polybar date_bar &
 polybar batery_bar &
 polybar pulseaudio_bar &
