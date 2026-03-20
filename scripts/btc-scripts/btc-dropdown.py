@@ -92,7 +92,7 @@ root.attributes("-topmost", True)
 root.configure(bg="#050608")
 
 # aumentei altura para caber tudo
-root.geometry("300x210+320+35")
+root.geometry("250x130+445+40")
 
 dados = obter_dados()
 

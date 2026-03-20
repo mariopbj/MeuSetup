@@ -3,10 +3,10 @@
 from datetime import datetime
 import os
 import sys
+import tkinter as tk
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ARQUIVO = os.path.join(BASE_DIR, "habito_data.txt")
-ESTADO = os.path.join(BASE_DIR, "modo.txt")
 
 
 # =========================
@@ -44,34 +44,6 @@ def definir():
 
 
 # =========================
-# 🔹 Estado (modo)
-# =========================
-
-def set_modo(modo):
-    with open(ESTADO, "w") as f:
-        f.write(modo)
-
-
-def get_modo():
-    try:
-        with open(ESTADO) as f:
-            return f.read().strip()
-    except:
-        return "padrao"
-
-
-def alternar_modo():
-    modo = get_modo()
-
-    if modo == "padrao":
-        set_modo("passados")
-    elif modo == "passados":
-        set_modo("restantes")
-    else:
-        set_modo("padrao")
-
-
-# =========================
 # 🔹 Cálculo
 # =========================
 
@@ -83,11 +55,8 @@ def calcular():
     hoje = datetime.now()
 
     total = (fim - inicio).days
-    passados = (hoje - inicio).days
-    restantes = (fim - hoje).days
-
-    passados = max(0, passados)
-    restantes = max(0, restantes)
+    passados = max(0, (hoje - inicio).days)
+    restantes = max(0, (fim - hoje).days)
 
     progresso = int((passados / total) * 100) if total > 0 else 0
     progresso = min(100, max(0, progresso))
@@ -96,7 +65,7 @@ def calcular():
 
 
 # =========================
-# 🔹 Barra de progresso
+# 🔹 Barra
 # =========================
 
 def barra(progresso, tamanho=10):
@@ -106,10 +75,10 @@ def barra(progresso, tamanho=10):
 
 
 # =========================
-# 🔹 Outputs
+# 🔹 Output Polybar
 # =========================
 
-def output_padrao():
+def output_polybar():
     data = calcular()
     if not data:
         return " Definir"
@@ -126,33 +95,74 @@ def output_padrao():
     return f"{cor}[{barra(progresso)}] %{{F-}}{progresso}%"
 
 
-def output_passados():
+# =========================
+# 🔹 Popup (dropdown)
+# =========================
+
+def abrir_popup():
     data = calcular()
+
+    root = tk.Tk()
+    root.overrideredirect(True)
+    root.attributes("-topmost", True)
+    root.configure(bg="#050608")
+
+    # posição (ajusta se quiser)
+    root.geometry("190x110+353+40")
+
+    frame = tk.Frame(root, bg="#050608", padx=15, pady=12)
+    frame.pack()
+
+    titulo = tk.Label(
+        frame,
+        text="Habit Tracker",
+        bg="#050608",
+        fg="white",
+        font=("monospace", 12, "bold")
+    )
+    titulo.pack(anchor="w")
+
     if not data:
-        return " 0d"
+        tk.Label(
+            frame,
+            text="Nenhuma meta definida",
+            bg="#050608",
+            fg="red",
+            font=("monospace", 11)
+        ).pack(anchor="w")
 
-    passados = data[3]
-    return f" Passou: {passados}d"
-
-
-def output_restantes():
-    data = calcular()
-    if not data:
-        return " 0d"
-
-    restantes = data[4]
-    return f" Resta: {restantes}d"
-
-
-def output():
-    modo = get_modo()
-
-    if modo == "passados":
-        return output_passados()
-    elif modo == "restantes":
-        return output_restantes()
     else:
-        return output_padrao()
+        nome, inicio, fim, passados, restantes, progresso = data
+
+        tk.Label(
+            frame,
+            text=f"Hábito: {nome}",
+            bg="#050608",
+            fg="white",
+            font=("monospace", 10)
+        ).pack(anchor="w")
+
+        tk.Label(
+            frame,
+            text=f" Passou: {passados} dias",
+            bg="#050608",
+            fg="#00ff88",
+            font=("monospace", 11)
+        ).pack(anchor="w")
+
+        tk.Label(
+            frame,
+            text=f" Resta: {restantes} dias",
+            bg="#050608",
+            fg="#ffaa00",
+            font=("monospace", 11)
+        ).pack(anchor="w")
+
+    # fecha ao clicar ou perder foco
+    root.bind("<FocusOut>", lambda e: root.destroy())
+    root.bind("<Button-1>", lambda e: root.destroy())
+
+    root.mainloop()
 
 
 # =========================
@@ -163,7 +173,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         if sys.argv[1] == "set":
             definir()
-        elif sys.argv[1] == "toggle":
-            alternar_modo()
+        elif sys.argv[1] == "popup":
+            abrir_popup()
     else:
-        print(output())
+        print(output_polybar())
