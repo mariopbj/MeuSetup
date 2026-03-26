@@ -6,7 +6,7 @@
     // Tipo de logo: ascii, kitty, iterm2, sixel
     "type": "auto",
     "color": {
-        "1": "\u001b[38;5;196m"
+        "1": "\u001b[38;5;245m"
     }
   },
   "modules": [
